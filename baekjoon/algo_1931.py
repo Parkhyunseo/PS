@@ -20,7 +20,7 @@ result = 0
 for i in range(N):
     s, e = meetings[i]
     
-    if last < s:
+    if last <= s:
         last = e
         result += 1 
         
