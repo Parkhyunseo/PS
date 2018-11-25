@@ -1,0 +1,1 @@
+from sys import stdin;N = list(filter(lambda x: int(x)>0, stdin.readline().split()));print(len(N))

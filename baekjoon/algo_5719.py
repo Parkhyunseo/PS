@@ -1,4 +1,15 @@
-from queue import PriorityQueue
+import heapq
+
+class PriorityQueue:
+    def __init__(self):
+        self.queue = []
+
+class Node:
+    def __init __(self, f, t ,w):
+        self.f = f
+        self.t = t
+        self.w = w
+    
 
 result = [] 
 
