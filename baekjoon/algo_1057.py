@@ -1,5 +1,9 @@
 N, A, B = map(int, input().split())
+count=0
 
-team = [ 0 for i in range(N)]
-team[A] = 100001
-team[B] = 100002
+while A!=B:
+    A = A % 2 + A // 2
+    B = B % 2 + B // 2
+    count += 1
+    
+print(count)

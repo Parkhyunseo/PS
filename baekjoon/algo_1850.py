@@ -1,0 +1,1 @@
+from fractions import *;print('1'*gcd(*map(int, input().split())));
