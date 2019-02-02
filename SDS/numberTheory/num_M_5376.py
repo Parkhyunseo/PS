@@ -4,9 +4,6 @@ def gcd(a, b):
     if a < b :
         a, b = b, a
     return a if b == 0 else gcd(b, a%b)
-    
-def lcm(a, b):
-    return a*b//gcd(a, b)
 
 for t in range(T):
     n = input()
