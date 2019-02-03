@@ -1,24 +1,24 @@
-from queue import Queue
-
-H, W = map(int, input().split())
+from sys import stdin
+H, W = map(int, stdin.readline().split())
 arr = []
 
 direction = [(0, 1), (0, -1), (1, 0), (-1, 0)]
 
 for y in range(H):
-    arr.append(list(map(int, list(input()))))
+    line = [ int(x) for x in stdin.readline()[:-1]]
+    arr.append(line)
     
 def bfs(sx, sy):
-    q = Queue(W*H)
+    q = []
     result = 0
     
-    q.put((sx, sy, 1))
+    q.append((sx, sy, 1))
     
     visit = [ [ False for _ in range(W)] for _ in range(H)]
+    visit[sy][sx] = True
     
-    while q.qsize() > 0:
-        cx, cy, distance = q.get()
-        visit[cy][cx] = True
+    while len(q) > 0:
+        cx, cy, distance = q.pop(0)
         
         if (cx == W-1) and (cy == H-1):
             result = distance
@@ -34,7 +34,11 @@ def bfs(sx, sy):
             if arr[ny][nx] == 0:
                 continue
             
-            q.put((nx, ny, distance+1))
+            if visit[ny][nx]:
+                continue
+            
+            visit[ny][nx] = True
+            q.append((nx, ny, distance+1))
             
     return result
 
