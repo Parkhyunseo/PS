@@ -1,12 +1,6 @@
-def gcd(a, b):
-    if a % b != 0:
-        return gcd(b, a % b)
-    else:
-        return b
-        
-DP = []
-meetings = []
 N = int(input())
+
+meetings = []
 
 for n in range(N):
     s, e = map(int, input().split())
