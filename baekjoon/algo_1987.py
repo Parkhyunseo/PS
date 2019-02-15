@@ -32,7 +32,6 @@ def dfs(here:tuple, depth:int) -> None :
         visited[ix] = True
         dfs((nx, ny), depth+1)
         visited[ix] = False
-        
 
 visited[get_index(table[0][0])] = True    
 dfs((0,0), 1)
