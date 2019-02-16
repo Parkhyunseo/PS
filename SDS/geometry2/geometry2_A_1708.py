@@ -45,7 +45,7 @@ for i in range(N):
     points.append(Vector2D(x, y))
     
 points.sort(key=lambda vector: (vector.y, vector.x))
-print(points)
+#print(points)
 start = points[0]
 # atan 정렬
 ps = sorted(points[1:], key=lambda vector: atan2(vector.y-start.y, vector.x-start.x))

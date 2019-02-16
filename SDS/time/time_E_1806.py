@@ -12,7 +12,7 @@ while True:
         total -= A[left]
         left += 1
     elif right == N:
-            break
+        break
     else:
         total += A[right]
         right += 1
