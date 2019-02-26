@@ -1,44 +1,40 @@
-from queue import Queue
+from sys import stdin
+N, K, M = map(int, stdin.readline().split())
 
-N, K, M = map(int, input().split())
-grid = [ [] for _ in range(N) ]
-hyper = []
-start = []
-result = 0
+graph = [ [] for _ in range(N+1)]
+visitied = [ False for _ in range(N+1)]
 
-for i in range(M):
-    line = map(lambda x: int(x) - 1, input().split())
+for m in range(M):
+    hypers = [ int(x) for x in stdin.readline().split() ]
     
-    hyper[i] = line
-    if line[0] == 1:
-        start.append(i)
-        
-    for k in range(K):
-        grid[line[k]].append(i) # N번 역은 i 번째 hyper tube를 탈 수 있다.
+    for hyper in hypers:
+        graph[hyper].append(hypers)
 
-# start index의 hyper tube를 타고 시작
-# 카운트도 추가
-def bfs(h_index, s_index=1):
-    q = Queue()
-    q.put(h_index, s_index, 0)
-    visit = [ False for _ in range(N) ]
+def bfs():
+    if N == 1:
+        return 1
+        
+    q = [ (1, 1) ]
+    visitied[1] = True
     
-    while q.qsize() > 0:
-        cur_h, cur_s, count = q.get()
-        visit[cur_s] = True
+    while len(q) > 0:
+        here, count = q.pop(0)
         
-        if cur_s == N:
-            result = count
-            break
-        
-        for station in hyper[cur_h]:
-            if visit[station]:
-                continue
-            else:
-                for hyper in grid[station]:
-                    q.put((hyper, station, count+1 if hyper != cur_h else count))
+        for hyper in graph[here]:
+            for there in hyper:
+                if here == there:
+                    continue
                 
-for s in start:
-    bfs(s)
+                if visitied[there]:
+                    continue
+                
+                if there == N:
+                    return count+1
+                
+                visitied[there] = True
+                q.append((there, count+1))
     
-print(result)
+    return -1
+                
+print(bfs())
+                    
