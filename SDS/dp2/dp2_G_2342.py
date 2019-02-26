@@ -1,4 +1,4 @@
-# Python 할 때 항상 재귀 깊이 생각
+# Python 할 때 항상 재귀 깊이 
 from sys import stdin, setrecursionlimit
 setrecursionlimit(1000000000)
 

@@ -12,5 +12,12 @@ Convex Hull (볼록 껍질)
     2. 각도 순 탐색
     3. 완료
 3. Monotone Chain O(N logN)
+    1. X축 정렬
+    2. 위 껍질 탐색
+    3. 아래 껍질 탐색
+    4. 병합
 
-Rotati
+Rotating Calipers
+ccw가 반시계에서 시계로 바뀌게 되는 점
+
+가장 먼 두 점

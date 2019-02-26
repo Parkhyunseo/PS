@@ -56,7 +56,6 @@ def build():
                 kx, ky = k % M, k // M
                 
                 if grid[iy][ix] == '0' and grid[jy][jx] == '0' and grid[ky][kx] == '0':
-                    #print(ix, iy, jx, jy, kx, ky)
                     grid[iy][ix] = '1'
                     grid[jy][jx] = '1'
                     grid[ky][kx] = '1'
@@ -64,12 +63,6 @@ def build():
                     grid[iy][ix] = '0'
                     grid[jy][jx] = '0'
                     grid[ky][kx] = '0'
-                else:
-                    pass
-                    #print(' ')
-                    #print(ix, iy, jx, jy, kx, ky)
-                    #print(grid[iy][ix],  grid[jy][jx],  grid[ky][kx])
-                    #print(' ')
                     
 result = 0
 build()
